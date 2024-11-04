@@ -4,22 +4,35 @@ import Header from "./Componentes/Header";
 import AcercaDe from "./Componentes/AcercaDe";
 import Blog from "./Componentes/Blog";
 import Inicio from "./Componentes/Inicio";
+import Styled, { styled } from "styled-components";
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <ContenedorPrincipal>
         <Header />
-        <main>
+        <Main>
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/acerca-de" element={<AcercaDe />} />
           </Routes>
-        </main>
-      </div>
+        </Main>
+      </ContenedorPrincipal>
     </BrowserRouter>
   );
 }
 
+const ContenedorPrincipal = styled.div`
+  padding: 40px;
+  width: 90%;
+  max-width: 700px;
+`;
+const Main = styled.main`
+  background: #fff;
+  color: black;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(129, 129, 129, 0.1);
+`;
 export default App;
