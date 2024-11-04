@@ -6,6 +6,7 @@ import Blog from "./Componentes/Blog";
 import Inicio from "./Componentes/Inicio";
 import Styled, { styled } from "styled-components";
 import Post from "./Componentes/Post";
+import Error404 from "./Componentes/Error404";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Main>
           <Routes>
+            <Route path="*" element={<Error404 />} />
             <Route path="/" element={<Inicio />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/post/:id" element={<Post />} />
