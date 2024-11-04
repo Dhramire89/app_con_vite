@@ -1,14 +1,20 @@
 import React from "react";
 import posts from "../posts";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
 const Post = () => {
   const { id } = useParams();
   return (
-    <div>
-      <h1>{posts[id - 1].titulo} </h1>
-      <p>{posts[id - 1].texto} </p>
-    </div>
+    <>
+      {posts[id - 1] ? (
+        <div>
+          <h1>{posts[id - 1].titulo} </h1>
+          <p>{posts[id - 1].texto} </p>
+        </div>
+      ) : (
+        <Navigate replace to="/" />
+      )}
+    </>
   );
 };
 
